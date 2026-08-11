@@ -1,6 +1,6 @@
 <!--
-PR title / PR 제목: type: short description
-Examples / 예시:
+PR title: type: short description
+Examples:
 - feat: add mandu pet
 - fix: correct chapssari idle animation
 - docs: add Korean installation guide
@@ -48,7 +48,7 @@ Details:
 
 ## Checklist
 
-- [ ] My pull request title uses the lowercase `type: short description` format. / PR 제목을 소문자 `type: short description` 형식으로 작성했습니다.
+- [ ] My pull request title uses the lowercase `type: short description` format.
 - [ ] This pull request contains one companion or one focused repository change.
 - [ ] Every changed path is allowed by the automatically assigned labels described in `CONTRIBUTING.md`.
 - [ ] Companion introduction and photo filenames start with my GitHub ID and use the same lowercase pet slug, or N/A.
