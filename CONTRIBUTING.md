@@ -68,6 +68,12 @@ python3 scripts/generate-community-gallery.py
 
 Open this repository in Codex and invoke `$create-companion-pet`, or start with `prompts/create-your-pet.md`.
 
+## Issue or pull request?
+
+Our goal is to collect companion animals from around the world in one welcoming repository. You do not need to open an issue before contributing a pet, translation, documentation improvement, or small focused fix. Follow this guide and open a pull request directly.
+
+Open an issue first when you are proposing a large or breaking feature, security or license policy change, workflow redesign, or broad refactor. If you want to add your pet but need help preparing the files, use the **Add my pet or get contribution help** issue form. A pet-help issue starts the conversation; the reviewed pull request is what adds the pet to the collection.
+
 ## Pull request checklist
 
 - [ ] This PR contains one companion or one focused repository change.

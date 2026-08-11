@@ -1,0 +1,76 @@
+name: Bug report
+description: Report broken behavior, a regression, or an unexpected result
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Paws on Codex. Please remove private information from screenshots and logs before submitting.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Pet installation
+        - Pet rendering or animation
+        - Web v1 compatibility
+        - Community pet gallery
+        - Automation or CI
+        - Documentation or translation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: What happened, and how did it affect you?
+      placeholder: Describe the observed behavior clearly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Install or select ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include the operating system, Codex app/CLI/web, and relevant version or commit when known.
+      placeholder: macOS 15, Codex desktop, commit abc123
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or logs
+      description: Optional. Remove tokens, file paths containing personal data, location clues, and other sensitive information.
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed private or sensitive information from the report.
+          required: true
