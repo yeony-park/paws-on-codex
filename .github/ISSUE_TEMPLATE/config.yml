@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Pet contribution guide
+    url: https://github.com/yeony-park/paws-on-codex/blob/main/CONTRIBUTING.md
+    about: Prepare a one-line introduction, optional photo, or installable Codex pet and open a pull request directly.

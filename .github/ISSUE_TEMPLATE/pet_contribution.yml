@@ -1,0 +1,90 @@
+name: Add my pet or get contribution help
+description: Introduce your companion animal or ask for help creating an installable Codex pet
+title: "[Pet]: "
+labels:
+  - pet
+  - help wanted
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Paws on Codex aims to bring companion animals from around the world into one shared collection.
+
+        If you can prepare the files, a pull request following `CONTRIBUTING.md` is the fastest way to add your pet. Use this form when you want to introduce your pet, plan a contribution, or ask for help. Opening this issue does not publish the pet by itself; the final files are added through a reviewed pull request.
+
+  - type: input
+    id: pet-name
+    attributes:
+      label: Pet name
+      placeholder: Mandu
+    validations:
+      required: true
+
+  - type: input
+    id: species-breed
+    attributes:
+      label: Species and breed
+      description: Breed is optional when unknown or not applicable.
+      placeholder: Cat · British Shorthair
+    validations:
+      required: true
+
+  - type: textarea
+    id: identity
+    attributes:
+      label: Recognizable traits
+      description: Describe coat colors and markings, face, ears, eyes, nose, body shape, and tail.
+      placeholder: Warm gray-brown coat, cream chest and paws, round blue-green eyes, short plush tail ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: personality
+    attributes:
+      label: Personality and favorite motions
+      description: Tell us how your pet behaves and which motions would make the character feel like them.
+      placeholder: Curious and active; loves pouncing, blinking slowly, and curling the tail while resting.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: goal
+    attributes:
+      label: Contribution goal
+      options:
+        - One-line community introduction
+        - Introduction and one photo
+        - Installable Codex pet assets
+        - Full contribution including introduction, photo, and pet assets
+        - I need help deciding
+    validations:
+      required: true
+
+  - type: dropdown
+    id: participation
+    attributes:
+      label: How would you like to participate?
+      options:
+        - I plan to open the pull request myself
+        - I want to use the included Codex skill and prompt
+        - I would like guidance from a contributor
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Sanitized visual references
+      description: Optional. Use only images you may publish. Remove EXIF/location data and crop out people, addresses, tags, screens, and other private details before uploading.
+
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and privacy
+      options:
+        - label: I own or have permission to publish the reference photos and resulting pet assets.
+          required: true
+        - label: I understand that contributed pet assets use CC BY-NC 4.0 by default unless different terms are explicitly agreed in the pull request.
+          required: true
+        - label: I removed private information and precise location clues from anything attached to this issue.
+          required: true
