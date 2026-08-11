@@ -2,10 +2,25 @@ from __future__ import annotations
 
 import unittest
 
-from scripts.validate_pr_paths import Change, InvalidContribution, validate_external_changes
+from scripts.validate_pr_paths import (
+    Change,
+    InvalidContribution,
+    github_status_to_code,
+    validate_external_changes,
+)
 
 
 class ValidateExternalChangesTest(unittest.TestCase):
+    def test_maps_github_file_statuses(self) -> None:
+        self.assertEqual(github_status_to_code("added"), "A")
+        self.assertEqual(github_status_to_code("modified"), "M")
+        self.assertEqual(github_status_to_code("removed"), "D")
+        self.assertEqual(github_status_to_code("renamed"), "R")
+
+    def test_rejects_unknown_github_file_status(self) -> None:
+        with self.assertRaisesRegex(InvalidContribution, "unsupported GitHub file status"):
+            github_status_to_code("unknown")
+
     def test_accepts_one_complete_companion(self) -> None:
         validate_external_changes(
             [

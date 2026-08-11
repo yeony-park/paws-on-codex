@@ -1,19 +1,44 @@
-name: Label pull requests
+name: Label and validate pull requests
 
 on:
   pull_request_target:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
 
 permissions:
   contents: read
   pull-requests: write
 
 jobs:
-  label:
+  validate:
+    name: validate
     runs-on: ubuntu-latest
     steps:
-      # This workflow intentionally does not check out or execute pull-request code.
-      - uses: actions/labeler@v6
+      - id: labeler
+        uses: actions/labeler@v6
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           sync-labels: true
+      # Only trusted code from the target branch is checked out. The pull
+      # request head is never checked out or executed in this workflow.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate external contribution paths
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          PR_ACTOR: ${{ github.event.pull_request.user.login }}
+          PR_LABELS: ${{ steps.labeler.outputs.all-labels }}
+        run: >-
+          python scripts/validate_pr_paths.py
+          --repository "$PR_REPOSITORY"
+          --pull-request "$PR_NUMBER"
+          --author-association "$PR_AUTHOR_ASSOCIATION"
+          --actor "$PR_ACTOR"
+          --labels "$PR_LABELS"
