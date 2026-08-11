@@ -5,7 +5,9 @@ on:
   # filter here: skipped required workflows remain pending and block merging.
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened, labeled, unlabeled]
+    # New external PRs are validated when the labeler emits `labeled`. Omitting
+    # `opened` avoids a temporary missing-label failure racing the labeler.
+    types: [synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main]
     paths:
