@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create a Companion Codex Pet"
+  short_description: "Turn companion photos into validated Codex pets"
+  default_prompt: "Use $create-companion-pet to turn my companion animal photos into a validated Codex v2 pet and v1 web package."
