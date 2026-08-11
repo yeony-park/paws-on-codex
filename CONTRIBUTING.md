@@ -2,6 +2,31 @@
 
 Companion-animal introductions, photos, installable pets, translations, and small fixes are welcome.
 
+## Required labels and allowed external pull request paths
+
+External contributions are welcome for pets, translations, bug fixes, and documentation. A safe `pull_request_target` workflow labels each pull request from its changed paths without checking out or executing contributor code. The required `validate` check then allows only the paths covered by at least one contribution label. Repository owners and collaborators may also change maintenance files directly.
+
+| Required label | Allowed paths |
+| --- | --- |
+| `pet` | `community-pets/<github-id>--<pet-slug>.md`, `community-pets/photos-inbox/<github-id>--<pet-slug>.<jpg|jpeg|png|webp>`, `pets/<pet-slug>/{pet.json,spritesheet.webp}`, `web-v1/<pet-slug>-v1-web-upload.zip`, and matching GIFs under `previews/` |
+| `translation` | `docs/<locale>/README.md` |
+| `bug` | Python files under `scripts/` and `tests/`, `install.sh`, `install.ps1`, workflows, and the project pet-creation skill |
+| `documentation` | `README.md`, `CONTRIBUTING.md`, `community-pets/README.md`, and Markdown briefs under `prompts/` |
+
+The labels are applied automatically. If a pull request legitimately spans more than one category, it may carry multiple labels and use the union of their allowed paths. A maintainer can correct labels during review; adding or removing a contribution label reruns validation.
+
+External pull requests must follow these additional rules:
+
+- Submit no more than one companion and 25 changed files per pull request.
+- Use one lowercase ASCII pet slug consistently across every companion file.
+- Prefix introduction and inbox-photo filenames with the pull request author's GitHub ID.
+- Add or modify files only; ask a maintainer before deleting or renaming published material.
+- Do not submit generated gallery files or processed photos under `community-pets/photos/`.
+- Use the `bug` category for focused fixes to scripts, workflows, installers, tests, or the project skill.
+- Open an issue first for license changes or maintenance work outside the labeled scopes.
+
+The required `validate` GitHub Actions check runs `scripts/validate_pr_paths.py` before a pull request can be merged. Missing labels and paths outside the active label scopes fail the check. Maintainer review is still required even when the automated check passes.
+
 ## 1. Submit a one-line introduction
 
 1. Copy `community-pets/_template.md`.
@@ -46,6 +71,7 @@ Open this repository in Codex and invoke `$create-companion-pet`, or start with 
 ## Pull request checklist
 
 - [ ] This PR contains one companion or one focused repository change.
+- [ ] Every changed path is listed in “Allowed external pull request paths,” or I discussed the maintenance change with a maintainer first.
 - [ ] I own or have permission to publish and license every photo and asset.
 - [ ] No private, contact, tag, or precise location information is visible.
 - [ ] The introduction is one line and the optional photo uses the same filename stem.

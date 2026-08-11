@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""Reject external pull-request changes outside contribution-owned paths."""
+
+from __future__ import annotations
+
+import argparse
+import re
+import subprocess
+from dataclasses import dataclass
+
+
+TRUSTED_ASSOCIATIONS = {"OWNER", "MEMBER", "COLLABORATOR"}
+MAX_EXTERNAL_FILES = 25
+CONTRIBUTION_LABELS = {"pet", "translation", "bug", "documentation"}
+SLUG = r"[a-z0-9]+(?:-[a-z0-9]+)*"
+MOTION_STATES = {
+    "failed",
+    "idle",
+    "jumping",
+    "review",
+    "running",
+    "running-left",
+    "running-right",
+    "waiting",
+    "waving",
+}
+
+
+@dataclass(frozen=True)
+class Change:
+    status: str
+    path: str
+
+
+class InvalidContribution(ValueError):
+    pass
+
+
+def changed_files(base: str, head: str) -> list[Change]:
+    result = subprocess.run(
+        ["git", "diff", "--name-status", "--find-renames", f"{base}...{head}"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    changes: list[Change] = []
+    for line in result.stdout.splitlines():
+        fields = line.split("\t")
+        status = fields[0]
+        if status.startswith(("R", "C")):
+            changes.append(Change(status, fields[-1]))
+        else:
+            changes.append(Change(status, fields[1]))
+    return changes
+
+
+def allowed_external_path(path: str, actor: str, labels: set[str]) -> str | None:
+    actor = actor.lower()
+
+    match = re.fullmatch(rf"community-pets/(?P<owner>{SLUG})--(?P<slug>{SLUG})\.md", path)
+    if match and "pet" in labels:
+        if match.group("owner") != actor:
+            raise InvalidContribution(
+                f"{path}: introduction filenames must start with the PR author's GitHub ID ({actor}--)"
+            )
+        return match.group("slug")
+
+    match = re.fullmatch(
+        rf"community-pets/photos-inbox/(?P<owner>{SLUG})--(?P<slug>{SLUG})\.(?:jpe?g|png|webp)",
+        path,
+        flags=re.IGNORECASE,
+    )
+    if match and "pet" in labels:
+        if match.group("owner").lower() != actor:
+            raise InvalidContribution(
+                f"{path}: photo filenames must start with the PR author's GitHub ID ({actor}--)"
+            )
+        return match.group("slug").lower()
+
+    match = re.fullmatch(rf"pets/(?P<slug>{SLUG})/(?:pet\.json|spritesheet\.webp)", path)
+    if match and "pet" in labels:
+        return match.group("slug")
+
+    match = re.fullmatch(rf"web-v1/(?P<slug>{SLUG})-v1-web-upload\.zip", path)
+    if match and "pet" in labels:
+        return match.group("slug")
+
+    match = re.fullmatch(rf"previews/(?P<slug>{SLUG})\.gif", path)
+    if match and "pet" in labels:
+        return match.group("slug")
+
+    match = re.fullmatch(rf"previews/motions/(?P<slug>{SLUG})/(?P<state>{SLUG})\.gif", path)
+    if match and match.group("state") in MOTION_STATES and "pet" in labels:
+        return match.group("slug")
+
+    if "translation" in labels and re.fullmatch(r"docs/[a-z]{2}(?:-[A-Z]{2})?/README\.md", path):
+        return None
+
+    bug_paths = (
+        r"(?:install\.sh|install\.ps1)",
+        r"scripts/[A-Za-z0-9_./-]+\.py",
+        r"tests/[A-Za-z0-9_./-]+\.py",
+        r"\.github/workflows/[A-Za-z0-9_.-]+\.ya?ml",
+        r"\.agents/skills/create-companion-pet/(?:SKILL\.md|agents/openai\.yaml|references/[A-Za-z0-9_.-]+\.md)",
+    )
+    if "bug" in labels and any(re.fullmatch(pattern, path) for pattern in bug_paths):
+        return None
+
+    documentation_paths = (
+        r"README\.md",
+        r"CONTRIBUTING\.md",
+        r"community-pets/README\.md",
+        r"prompts/[A-Za-z0-9_.-]+\.md",
+    )
+    if "documentation" in labels and any(
+        re.fullmatch(pattern, path) for pattern in documentation_paths
+    ):
+        return None
+
+    active = ", ".join(sorted(labels & CONTRIBUTION_LABELS)) or "none"
+    raise InvalidContribution(f"{path}: path is not allowed by contribution labels ({active})")
+
+
+def validate_external_changes(changes: list[Change], actor: str, labels: set[str]) -> None:
+    if not changes:
+        raise InvalidContribution("the pull request does not contain any changed files")
+    if not labels & CONTRIBUTION_LABELS:
+        raise InvalidContribution(
+            "at least one contribution label is required: "
+            + ", ".join(sorted(CONTRIBUTION_LABELS))
+        )
+    if len(changes) > MAX_EXTERNAL_FILES:
+        raise InvalidContribution(
+            f"external pull requests may change at most {MAX_EXTERNAL_FILES} files; found {len(changes)}"
+        )
+
+    slugs: set[str] = set()
+    errors: list[str] = []
+    for change in changes:
+        if change.status not in {"A", "M"}:
+            errors.append(f"{change.path}: external pull requests may only add or modify files")
+            continue
+        try:
+            slug = allowed_external_path(change.path, actor, labels)
+            if slug:
+                slugs.add(slug)
+        except InvalidContribution as error:
+            errors.append(str(error))
+
+    if len(slugs) > 1:
+        errors.append(
+            "one companion per pull request is required; found slugs: " + ", ".join(sorted(slugs))
+        )
+    if errors:
+        raise InvalidContribution("\n".join(errors))
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--base", required=True)
+    parser.add_argument("--head", required=True)
+    parser.add_argument("--author-association", required=True)
+    parser.add_argument("--actor", required=True)
+    parser.add_argument("--labels", default="")
+    args = parser.parse_args()
+
+    association = args.author_association.upper()
+    if association in TRUSTED_ASSOCIATIONS:
+        print(f"trusted contributor ({association}); repository-maintenance paths are allowed")
+        return 0
+
+    changes = changed_files(args.base, args.head)
+    labels = {label.strip().lower() for label in args.labels.split(",") if label.strip()}
+    try:
+        validate_external_changes(changes, args.actor, labels)
+    except InvalidContribution as error:
+        print("External contribution path validation failed:")
+        print(error)
+        print("See CONTRIBUTING.md#allowed-external-pull-request-paths.")
+        return 1
+
+    active = ", ".join(sorted(labels & CONTRIBUTION_LABELS))
+    print(f"validated {len(changes)} external contribution paths for @{args.actor} ({active})")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,29 @@
+pet:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "community-pets/**"
+          - "pets/**"
+          - "previews/**"
+          - "web-v1/**"
+
+translation:
+  - changed-files:
+      - any-glob-to-any-file: "docs/**"
+
+bug:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".agents/skills/create-companion-pet/**"
+          - "scripts/**"
+          - "tests/**"
+          - "install.sh"
+          - "install.ps1"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "README.md"
+          - "CONTRIBUTING.md"
+          - "community-pets/README.md"
+          - "prompts/**"

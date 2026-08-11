@@ -1,6 +1,13 @@
-name: Publish community gallery
+name: Validate contributions and publish community gallery
 
 on:
+  # Run the same required check for every pull request. Do not add a paths
+  # filter here: skipped required workflows remain pending and block merging.
+  pull_request:
+    branches: [main]
+    # New external PRs are validated when the labeler emits `labeled`. Omitting
+    # `opened` avoids a temporary missing-label failure racing the labeler.
+    types: [synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main]
     paths:
@@ -8,28 +15,45 @@ on:
       - "scripts/convert-community-photos.py"
       - "scripts/generate-community-gallery.py"
       - "scripts/validate-community-submissions.py"
-  pull_request:
-    paths:
-      - "community-pets/**"
-      - "scripts/convert-community-photos.py"
-      - "scripts/generate-community-gallery.py"
-      - "scripts/validate-community-submissions.py"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   validate:
+    name: validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate external contribution paths
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          PR_ACTOR: ${{ github.event.pull_request.user.login }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: >-
+          python scripts/validate_pr_paths.py
+          --base "$PR_BASE_SHA"
+          --head "$PR_HEAD_SHA"
+          --author-association "$PR_AUTHOR_ASSOCIATION"
+          --actor "$PR_ACTOR"
+          --labels "$PR_LABELS"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: python -m pip install Pillow
+      - run: python -m unittest discover -s tests
       - run: python scripts/validate-community-submissions.py
 
   publish:
+    name: publish-community-gallery
+    # Publishing can only start after a change has been reviewed, approved,
+    # and merged into main. Pull requests never receive write permissions.
     if: github.event_name == 'push'
     needs: validate
     runs-on: ubuntu-latest
