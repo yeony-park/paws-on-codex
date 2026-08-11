@@ -1,6 +1,10 @@
-name: Publish community gallery
+name: Validate contributions and publish community gallery
 
 on:
+  # Run the same required check for every pull request. Do not add a paths
+  # filter here: skipped required workflows remain pending and block merging.
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -8,18 +12,14 @@ on:
       - "scripts/convert-community-photos.py"
       - "scripts/generate-community-gallery.py"
       - "scripts/validate-community-submissions.py"
-  pull_request:
-    paths:
-      - "community-pets/**"
-      - "scripts/convert-community-photos.py"
-      - "scripts/generate-community-gallery.py"
-      - "scripts/validate-community-submissions.py"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   validate:
+    name: validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,6 +30,9 @@ jobs:
       - run: python scripts/validate-community-submissions.py
 
   publish:
+    name: publish-community-gallery
+    # Publishing can only start after a change has been reviewed, approved,
+    # and merged into main. Pull requests never receive write permissions.
     if: github.event_name == 'push'
     needs: validate
     runs-on: ubuntu-latest
