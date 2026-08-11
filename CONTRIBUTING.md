@@ -74,6 +74,29 @@ Our goal is to collect companion animals from around the world in one welcoming 
 
 Open an issue first when you are proposing a large or breaking feature, security or license policy change, workflow redesign, or broad refactor. If you want to add your pet but need help preparing the files, use the **Add my pet or get contribution help** issue form. A pet-help issue starts the conversation; the reviewed pull request is what adds the pet to the collection.
 
+## Pull request title format
+
+Use a lowercase type, one colon, one space, and a short description:
+
+```text
+type: short description
+```
+
+| Type | Use it for |
+| --- | --- |
+| `feat:` | A new pet or user-facing feature |
+| `fix:` | A bug or incorrect pet behavior |
+| `docs:` | Documentation or translation |
+| `ci:` | GitHub Actions and contribution automation |
+| `chore:` | Repository maintenance |
+| `refactor:` | Internal restructuring without a behavior change |
+| `test:` | Test-only changes |
+| `perf:` | Performance improvements |
+| `build:` | Packaging, dependencies, or build tooling |
+| `revert:` | Reverting an earlier change |
+
+Examples: `feat: add bori pet`, `fix: correct idle blinking`, `docs: translate installation guide`, and `ci: validate pull request titles`.
+
 ## Pull request checklist
 
 - [ ] This PR contains one companion or one focused repository change.
