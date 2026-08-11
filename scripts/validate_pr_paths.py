@@ -4,8 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import json
+import os
 import re
 import subprocess
+import urllib.request
 from dataclasses import dataclass
 
 
@@ -52,6 +55,48 @@ def changed_files(base: str, head: str) -> list[Change]:
         else:
             changes.append(Change(status, fields[1]))
     return changes
+
+
+def github_status_to_code(status: str) -> str:
+    status_codes = {
+        "added": "A",
+        "modified": "M",
+        "changed": "M",
+        "removed": "D",
+        "renamed": "R",
+        "copied": "C",
+    }
+    try:
+        return status_codes[status]
+    except KeyError as error:
+        raise InvalidContribution(f"unsupported GitHub file status: {status}") from error
+
+
+def pull_request_files(repository: str, number: int, token: str) -> list[Change]:
+    changes: list[Change] = []
+    page = 1
+    while True:
+        url = (
+            f"https://api.github.com/repos/{repository}/pulls/{number}/files"
+            f"?per_page=100&page={page}"
+        )
+        request = urllib.request.Request(
+            url,
+            headers={
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {token}",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+        )
+        with urllib.request.urlopen(request) as response:
+            files = json.load(response)
+        changes.extend(
+            Change(github_status_to_code(file["status"]), file["filename"])
+            for file in files
+        )
+        if len(files) < 100:
+            return changes
+        page += 1
 
 
 def allowed_external_path(path: str, actor: str, labels: set[str]) -> str | None:
@@ -157,8 +202,10 @@ def validate_external_changes(changes: list[Change], actor: str, labels: set[str
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--base", required=True)
-    parser.add_argument("--head", required=True)
+    parser.add_argument("--base")
+    parser.add_argument("--head")
+    parser.add_argument("--repository")
+    parser.add_argument("--pull-request", type=int)
     parser.add_argument("--author-association", required=True)
     parser.add_argument("--actor", required=True)
     parser.add_argument("--labels", default="")
@@ -169,7 +216,17 @@ def main() -> int:
         print(f"trusted contributor ({association}); repository-maintenance paths are allowed")
         return 0
 
-    changes = changed_files(args.base, args.head)
+    if args.repository and args.pull_request:
+        token = os.environ.get("GITHUB_TOKEN")
+        if not token:
+            parser.error("GITHUB_TOKEN is required with --repository and --pull-request")
+        changes = pull_request_files(args.repository, args.pull_request, token)
+    elif args.base and args.head:
+        changes = changed_files(args.base, args.head)
+    else:
+        parser.error(
+            "provide --repository and --pull-request, or provide --base and --head"
+        )
     labels = {label.strip().lower() for label in args.labels.split(",") if label.strip()}
     try:
         validate_external_changes(changes, args.actor, labels)

@@ -4,7 +4,7 @@ Companion-animal introductions, photos, installable pets, translations, and smal
 
 ## Required labels and allowed external pull request paths
 
-External contributions are welcome for pets, translations, bug fixes, and documentation. A safe `pull_request_target` workflow labels each pull request from its changed paths without checking out or executing contributor code. The required `validate` check then allows only the paths covered by at least one contribution label. Repository owners and collaborators may also change maintenance files directly.
+External contributions are welcome for pets, translations, bug fixes, and documentation. A safe `pull_request_target` workflow labels each pull request and validates its changed paths in the same job, without checking out or executing contributor code. The required `validate` check allows only the paths covered by at least one contribution label. Repository owners and collaborators may also change maintenance files directly.
 
 | Required label | Allowed paths |
 | --- | --- |
@@ -25,7 +25,7 @@ External pull requests must follow these additional rules:
 - Use the `bug` category for focused fixes to scripts, workflows, installers, tests, or the project skill.
 - Open an issue first for license changes or maintenance work outside the labeled scopes.
 
-The required `validate` GitHub Actions check runs `scripts/validate_pr_paths.py` before a pull request can be merged. Missing labels and paths outside the active label scopes fail the check. Maintainer review is still required even when the automated check passes.
+The required `validate` check runs the trusted copy of `scripts/validate_pr_paths.py` from the target branch. The separate `validate-content` check safely tests the pull request's repository content. Configure both as required status checks before merging. Missing labels and paths outside the active label scopes fail `validate`; maintainer review is still required even when both automated checks pass.
 
 ## 1. Submit a one-line introduction
 

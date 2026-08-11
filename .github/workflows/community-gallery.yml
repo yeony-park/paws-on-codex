@@ -5,9 +5,6 @@ on:
   # filter here: skipped required workflows remain pending and block merging.
   pull_request:
     branches: [main]
-    # New external PRs are validated when the labeler emits `labeled`. Omitting
-    # `opened` avoids a temporary missing-label failure racing the labeler.
-    types: [synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main]
     paths:
@@ -21,28 +18,13 @@ permissions:
   contents: read
 
 jobs:
-  validate:
-    name: validate
+  validate-content:
+    name: validate-content
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Validate external contribution paths
-        if: github.event_name == 'pull_request'
-        env:
-          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          PR_AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
-          PR_ACTOR: ${{ github.event.pull_request.user.login }}
-          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
-        run: >-
-          python scripts/validate_pr_paths.py
-          --base "$PR_BASE_SHA"
-          --head "$PR_HEAD_SHA"
-          --author-association "$PR_AUTHOR_ASSOCIATION"
-          --actor "$PR_ACTOR"
-          --labels "$PR_LABELS"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -55,7 +37,7 @@ jobs:
     # Publishing can only start after a change has been reviewed, approved,
     # and merged into main. Pull requests never receive write permissions.
     if: github.event_name == 'push'
-    needs: validate
+    needs: validate-content
     runs-on: ubuntu-latest
     permissions:
       contents: write
