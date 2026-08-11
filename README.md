@@ -128,7 +128,7 @@ The skill gathers an identity brief, invokes the installed `hatch-pet` workflow,
 
 ## Acknowledgements
 
-The motion-table presentation and community-minded distribution approach were inspired by [`legeling/awesome-codex-pet`](https://github.com/legeling/awesome-codex-pet). This repository's current implementation is independently written. If upstream MIT-licensed code is incorporated later, its copyright and permission notice must be preserved as described in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+With thanks to [`legeling/awesome-codex-pet`](https://github.com/legeling/awesome-codex-pet): its motion-by-motion gallery presentation, one-command access, and community-first distribution model inspired this project. This repository's current implementation is independently written. If upstream MIT-licensed code is incorporated later, its copyright and permission notice must be preserved as described in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Contributors
 
