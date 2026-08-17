@@ -11,7 +11,7 @@ You may share and adapt these assets for noncommercial purposes when you:
 
 ## Scope
 
-This notice covers files under `pets/`, `previews/`, `community-pets/photos/`, and the PNG artwork in `plugins/paws-on-codex/assets/` only when the individual file or contribution does not declare different terms. The bundled `component.js`, code, scripts, and documentation remain under the repository's [MIT License](LICENSE) and the third-party terms recorded in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+This notice covers files under `pets/`, `previews/`, `community-pets/photos/`, the PNG artwork in `apps/chatgpt/assets/`, and the PNG artwork in the plugin asset directory. That plugin directory is `plugins/paws-on-codex/assets/` in this source repository and `assets/` inside an installed plugin package. These terms apply only when the individual file or contribution does not declare different terms. The bundled `component.js`, code, scripts, and documentation remain under the repository's [MIT License](LICENSE) and the third-party terms recorded in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
 The names and likenesses of real companion animals remain associated with their guardians. Original reference photographs are not included in this license unless they are deliberately committed to `community-pets/photos/` and attributed in the matching introduction or pull request.
 
