@@ -4,10 +4,13 @@
 
 ```text
 pets/<pet-slug>/pet.json
+pets/<pet-slug>/distribution.json
 pets/<pet-slug>/spritesheet.webp
 ```
 
 Use an ASCII lowercase hyphenated slug. Set `spriteVersionNumber` to `2`. The atlas must be RGBA WebP, `1536×2288`, with `192×208` cells in an `8×11` grid. Preserve the Codex row contract and fully transparent unused cells.
+
+Record contributor identity, attribution, asset license, and distribution consent in `distribution.json`. Set `surfaces.chatgpt` to `true` only with explicit contributor consent; otherwise keep it `false` so the pet remains Codex-only.
 
 ## Required v1 web package
 

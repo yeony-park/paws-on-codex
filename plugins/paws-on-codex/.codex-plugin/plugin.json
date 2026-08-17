@@ -1,0 +1,47 @@
+{
+  "name": "paws-on-codex",
+  "version": "0.1.0+codex.20260817124644",
+  "description": "Choose and display recognizable companion-animal coding pets.",
+  "author": {
+    "name": "Yeony Park",
+    "url": "https://github.com/yeony-park/paws-on-codex"
+  },
+  "homepage": "https://github.com/yeony-park/paws-on-codex",
+  "repository": "https://github.com/yeony-park/paws-on-codex",
+  "license": "MIT",
+  "keywords": [
+    "pets",
+    "companions",
+    "canvas",
+    "codex",
+    "chatgpt"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Paws On Codex",
+    "shortDescription": "Real companions as coding pets.",
+    "longDescription": "Browse community-contributed companion animals and display their soft 3D retro virtual-pet animations in Codex and compatible MCP Apps hosts.",
+    "developerName": "Yeony Park",
+    "category": "Lifestyle",
+    "capabilities": [
+      "MCP tools",
+      "Interactive UI",
+      "Skills"
+    ],
+    "defaultPrompt": [
+      "Show the available companions and help me choose one.",
+      "Show Chapssari with the idle animation.",
+      "Show Mandu waving."
+    ],
+    "brandColor": "#F2A6B3",
+    "websiteURL": "https://github.com/yeony-park/paws-on-codex",
+    "privacyPolicyURL": "https://github.com/yeony-park/paws-on-codex/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/yeony-park/paws-on-codex/blob/main/TERMS.md",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": [
+      "./assets/screenshot.png"
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

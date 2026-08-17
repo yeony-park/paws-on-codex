@@ -1,0 +1,7 @@
+{
+  "paws-on-codex": {
+    "command": "node",
+    "args": ["./start-server.mjs"],
+    "cwd": "."
+  }
+}

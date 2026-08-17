@@ -122,7 +122,17 @@ def allowed_external_path(path: str, actor: str, labels: set[str]) -> str | None
             )
         return match.group("slug").lower()
 
-    match = re.fullmatch(rf"pets/(?P<slug>{SLUG})/(?:pet\.json|spritesheet\.webp)", path)
+    match = re.fullmatch(
+        rf"pets/(?P<slug>{SLUG})/(?:pet\.json|distribution\.json|spritesheet\.webp)",
+        path,
+    )
+    if match and "pet" in labels:
+        return match.group("slug")
+
+    match = re.fullmatch(
+        rf"plugins/paws-on-codex/pets/(?P<slug>{SLUG})/(?:pet\.json|distribution\.json|spritesheet\.webp)",
+        path,
+    )
     if match and "pet" in labels:
         return match.group("slug")
 
@@ -142,11 +152,19 @@ def allowed_external_path(path: str, actor: str, labels: set[str]) -> str | None
         return None
 
     bug_paths = (
+        r"\.dockerignore",
         r"(?:install\.sh|install\.ps1)",
         r"scripts/[A-Za-z0-9_./-]+\.py",
+        r"scripts/[A-Za-z0-9_./-]+\.mjs",
         r"tests/[A-Za-z0-9_./-]+\.py",
         r"\.github/workflows/[A-Za-z0-9_.-]+\.ya?ml",
+        r"\.agents/plugins/marketplace\.json",
+        r"THIRD_PARTY_LICENSES\.md",
         r"\.agents/skills/create-companion-pet/(?:SKILL\.md|agents/openai\.yaml|references/[A-Za-z0-9_.-]+\.md)",
+        r"apps/chatgpt/assets/screenshot\.png",
+        r"apps/chatgpt/(?:server|web)/(?:Dockerfile|package(?:-lock)?\.json|tsconfig\.json|src/[A-Za-z0-9_./-]+\.tsx?)",
+        r"plugins/paws-on-codex/(?:\.codex-plugin/plugin\.json|\.mcp\.json|start-server\.mjs|LICENSE|ASSETS-LICENSE\.md|NOTICE\.md|THIRD_PARTY_LICENSES\.md|dist/server\.mjs|assets/(?:component\.js|icon\.png|logo\.png|screenshot\.png)|skills/choose-companion/(?:SKILL\.md|agents/openai\.yaml))",
+        r"packages/pet-core/(?:package\.json|index\.js|index\.d\.ts)",
     )
     if "bug" in labels and any(re.fullmatch(pattern, path) for pattern in bug_paths):
         return None
@@ -154,8 +172,11 @@ def allowed_external_path(path: str, actor: str, labels: set[str]) -> str | None
     documentation_paths = (
         r"README\.md",
         r"CONTRIBUTING\.md",
+        r"(?:PRIVACY|SUPPORT|TERMS)\.md",
         r"community-pets/README\.md",
         r"prompts/[A-Za-z0-9_.-]+\.md",
+        r"apps/chatgpt/README\.md",
+        r"docs/plugin/[A-Za-z0-9_.-]+\.(?:md|json)",
     )
     if "documentation" in labels and any(
         re.fullmatch(pattern, path) for pattern in documentation_paths

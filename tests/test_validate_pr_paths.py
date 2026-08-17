@@ -27,6 +27,7 @@ class ValidateExternalChangesTest(unittest.TestCase):
                 Change("A", "community-pets/example-user--bori.md"),
                 Change("A", "community-pets/photos-inbox/example-user--bori.jpg"),
                 Change("A", "pets/bori/pet.json"),
+                Change("A", "pets/bori/distribution.json"),
                 Change("A", "pets/bori/spritesheet.webp"),
                 Change("A", "web-v1/bori-v1-web-upload.zip"),
                 Change("A", "previews/bori.gif"),
@@ -53,6 +54,68 @@ class ValidateExternalChangesTest(unittest.TestCase):
 
     def test_accepts_documentation_fix(self) -> None:
         validate_external_changes([Change("M", "README.md")], "writer", {"documentation"})
+
+    def test_accepts_chatgpt_bug_fix(self) -> None:
+        validate_external_changes(
+            [
+                Change("M", "apps/chatgpt/web/src/SpritePlayer.tsx"),
+                Change("M", "packages/pet-core/index.js"),
+            ],
+            "example-user",
+            {"bug"},
+        )
+
+    def test_accepts_chatgpt_listing_screenshot_fix(self) -> None:
+        validate_external_changes(
+            [Change("M", "apps/chatgpt/assets/screenshot.png")],
+            "example-user",
+            {"bug"},
+        )
+
+    def test_accepts_packaged_plugin_bug_fix(self) -> None:
+        validate_external_changes(
+            [
+                Change("M", "apps/chatgpt/server/Dockerfile"),
+                Change("M", "scripts/package-chatgpt-plugin.mjs"),
+                Change("M", "plugins/paws-on-codex/dist/server.mjs"),
+            ],
+            "example-user",
+            {"bug"},
+        )
+
+    def test_accepts_generated_third_party_licenses(self) -> None:
+        validate_external_changes(
+            [
+                Change("M", "THIRD_PARTY_LICENSES.md"),
+                Change("M", "plugins/paws-on-codex/THIRD_PARTY_LICENSES.md"),
+                Change("M", "plugins/paws-on-codex/NOTICE.md"),
+            ],
+            "example-user",
+            {"bug"},
+        )
+
+    def test_accepts_plugin_release_documentation(self) -> None:
+        validate_external_changes(
+            [
+                Change("M", "PRIVACY.md"),
+                Change("M", "docs/plugin/SUBMISSION.md"),
+                Change("M", "docs/plugin/review-test-cases.json"),
+            ],
+            "writer",
+            {"documentation"},
+        )
+
+    def test_accepts_opted_in_packaged_pet(self) -> None:
+        validate_external_changes(
+            [
+                Change("A", "pets/bori/pet.json"),
+                Change("A", "plugins/paws-on-codex/pets/bori/pet.json"),
+                Change("A", "plugins/paws-on-codex/pets/bori/distribution.json"),
+                Change("A", "plugins/paws-on-codex/pets/bori/spritesheet.webp"),
+            ],
+            "example-user",
+            {"pet"},
+        )
 
     def test_rejects_missing_label(self) -> None:
         with self.assertRaisesRegex(InvalidContribution, "contribution label is required"):

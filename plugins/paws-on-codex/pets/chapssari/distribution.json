@@ -1,0 +1,12 @@
+{
+  "contributor": {
+    "github": "yeony-park",
+    "displayName": "Yeony Park"
+  },
+  "license": "CC-BY-NC-4.0",
+  "attribution": "Chapssari pet art by Yeony Park",
+  "surfaces": {
+    "codex": true,
+    "chatgpt": true
+  }
+}

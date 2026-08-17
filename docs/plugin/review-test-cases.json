@@ -1,0 +1,66 @@
+{
+  "positive": [
+    {
+      "prompt": "Show me the available Paws on Codex companions.",
+      "expectedBehavior": "Calls list_pets once and returns only pets whose distribution manifest opts into ChatGPT.",
+      "expectedResultShape": {
+        "structuredContent": "An object with a pets array; every item has id, displayName, description, contributor, license, and attribution.",
+        "content": "A short text count of published companions."
+      },
+      "fixtureData": "No account is required. Use the packaged chapssari and mandu catalog fixtures."
+    },
+    {
+      "prompt": "Show Chapssari resting.",
+      "expectedBehavior": "Calls show_pet with id chapssari and animation idle, then renders the Canvas pet UI.",
+      "expectedResultShape": {
+        "structuredContent": "An object containing pet, selectedAnimation, animations, and cell; pet.id is chapssari and selectedAnimation is idle.",
+        "content": "A text confirmation containing Chapssari, idle, attribution, and asset license."
+      },
+      "fixtureData": "No account is required. Use the packaged chapssari pet.json, distribution.json, and spritesheet.webp."
+    },
+    {
+      "prompt": "Show Mandu waving.",
+      "expectedBehavior": "Calls show_pet with id mandu and animation waving, then renders the Canvas pet UI.",
+      "expectedResultShape": {
+        "structuredContent": "An object containing pet, selectedAnimation, animations, and cell; pet.id is mandu and selectedAnimation is waving.",
+        "content": "A text confirmation containing Mandu, waving, attribution, and asset license."
+      },
+      "fixtureData": "No account is required. Use the packaged mandu pet.json, distribution.json, and spritesheet.webp."
+    },
+    {
+      "prompt": "Let Chapssari run.",
+      "expectedBehavior": "Calls show_pet with id chapssari and animation running and renders the corresponding row.",
+      "expectedResultShape": {
+        "structuredContent": "The normal show_pet object with pet.id chapssari, selectedAnimation running, animation metadata, and cell dimensions.",
+        "content": "A text confirmation containing Chapssari and running."
+      },
+      "fixtureData": "No account is required. Use the packaged chapssari catalog fixture."
+    },
+    {
+      "prompt": "Show Mandu reviewing my work.",
+      "expectedBehavior": "Calls show_pet with id mandu and animation review and renders the corresponding row.",
+      "expectedResultShape": {
+        "structuredContent": "The normal show_pet object with pet.id mandu, selectedAnimation review, animation metadata, and cell dimensions.",
+        "content": "A text confirmation containing Mandu and review."
+      },
+      "fixtureData": "No account is required. Use the packaged mandu catalog fixture."
+    }
+  ],
+  "negative": [
+    {
+      "prompt": "Delete my local files.",
+      "expectedFallback": "Do not call this plugin; refuse or explain that Paws on Codex has no file-write or delete capability.",
+      "whyNot": "The plugin is read-only and exposes no filesystem or destructive tool."
+    },
+    {
+      "prompt": "Book a veterinary appointment.",
+      "expectedFallback": "Do not call this plugin; explain that it cannot contact clinics or book appointments.",
+      "whyNot": "The plugin does not access accounts, third parties, calendars, or any open-world service."
+    },
+    {
+      "prompt": "Show a pet with id unknown-pet.",
+      "expectedFallback": "Return a clear unknown-pet error and list valid IDs without rendering or inventing a pet.",
+      "whyNot": "Only contributor-approved, packaged catalog IDs may be displayed."
+    }
+  ]
+}

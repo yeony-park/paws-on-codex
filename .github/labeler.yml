@@ -8,13 +8,28 @@ pet:
 
 translation:
   - changed-files:
-      - any-glob-to-any-file: "docs/**"
+      - any-glob-to-any-file: "docs/*/README.md"
 
 bug:
   - changed-files:
       - any-glob-to-any-file:
           - ".github/workflows/**"
+          - ".agents/plugins/**"
+          - ".dockerignore"
           - ".agents/skills/create-companion-pet/**"
+          - "THIRD_PARTY_LICENSES.md"
+          - "apps/chatgpt/server/package.json"
+          - "apps/chatgpt/server/package-lock.json"
+          - "apps/chatgpt/server/tsconfig.json"
+          - "apps/chatgpt/server/src/**"
+          - "apps/chatgpt/server/Dockerfile"
+          - "apps/chatgpt/web/package.json"
+          - "apps/chatgpt/web/package-lock.json"
+          - "apps/chatgpt/web/tsconfig.json"
+          - "apps/chatgpt/web/src/**"
+          - "apps/chatgpt/assets/**"
+          - "plugins/paws-on-codex/**"
+          - "packages/pet-core/**"
           - "scripts/**"
           - "tests/**"
           - "install.sh"
@@ -27,3 +42,8 @@ documentation:
           - "CONTRIBUTING.md"
           - "community-pets/README.md"
           - "prompts/**"
+          - "apps/chatgpt/README.md"
+          - "PRIVACY.md"
+          - "SUPPORT.md"
+          - "TERMS.md"
+          - "docs/plugin/**"
