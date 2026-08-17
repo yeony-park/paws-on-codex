@@ -12,7 +12,7 @@
     "dev:http": "tsx src/index.ts --http",
     "start": "node dist/index.js",
     "start:http": "node dist/index.js --http",
-    "test": "tsx --test src/**/*.test.ts",
+    "test": "tsx --test src/index.test.ts src/pet-catalog.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
