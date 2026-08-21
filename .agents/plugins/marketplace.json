@@ -1,0 +1,20 @@
+{
+  "name": "paws-on-codex",
+  "interface": {
+    "displayName": "Paws on Codex"
+  },
+  "plugins": [
+    {
+      "name": "paws-on-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/paws-on-codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Lifestyle"
+    }
+  ]
+}

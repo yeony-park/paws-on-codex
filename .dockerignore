@@ -1,0 +1,12 @@
+.git
+.github
+**/node_modules
+**/dist
+community-pets
+docs
+plugins
+previews
+web-v1
+*.gif
+*.mov
+*.mp4

@@ -1,2 +1,7 @@
 .DS_Store
 Thumbs.db
+node_modules/
+apps/chatgpt/server/dist/
+apps/chatgpt/web/dist/
+.env
+__pycache__/

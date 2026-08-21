@@ -1,0 +1,4 @@
+interface:
+  display_name: "Choose a Companion"
+  short_description: "Choose and show a Paws on Codex companion"
+  default_prompt: "Use $choose-companion to show the available Paws on Codex companions and help me choose one."

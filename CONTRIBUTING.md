@@ -8,10 +8,10 @@ External contributions are welcome for pets, translations, bug fixes, and docume
 
 | Required label | Allowed paths |
 | --- | --- |
-| `pet` | `community-pets/<github-id>--<pet-slug>.md`, `community-pets/photos-inbox/<github-id>--<pet-slug>.<jpg|jpeg|png|webp>`, `pets/<pet-slug>/{pet.json,spritesheet.webp}`, `web-v1/<pet-slug>-v1-web-upload.zip`, and matching GIFs under `previews/` |
+| `pet` | `community-pets/<github-id>--<pet-slug>.md`, `community-pets/photos-inbox/<github-id>--<pet-slug>.<jpg|jpeg|png|webp>`, `pets/<pet-slug>/{pet.json,distribution.json,spritesheet.webp}`, `web-v1/<pet-slug>-v1-web-upload.zip`, and matching GIFs under `previews/` |
 | `translation` | `docs/<locale>/README.md` |
-| `bug` | Python files under `scripts/` and `tests/`, `install.sh`, `install.ps1`, workflows, and the project pet-creation skill |
-| `documentation` | `README.md`, `CONTRIBUTING.md`, `community-pets/README.md`, and Markdown briefs under `prompts/` |
+| `bug` | Python files under `scripts/` and `tests/`, `install.sh`, `install.ps1`, workflows, the project pet-creation skill, and focused ChatGPT adapter/plugin/core files |
+| `documentation` | `README.md`, `CONTRIBUTING.md`, `community-pets/README.md`, `apps/chatgpt/README.md`, and Markdown briefs under `prompts/` |
 
 The labels are applied automatically. If a pull request legitimately spans more than one category, it may carry multiple labels and use the union of their allowed paths. A maintainer can correct labels during review; adding or removing a contribution label reruns validation.
 
@@ -59,12 +59,31 @@ python3 scripts/generate-community-gallery.py
 ## 3. Submit an installable Codex pet
 
 - Submit one pet per pull request.
-- Include `pets/<pet-slug>/pet.json` and `pets/<pet-slug>/spritesheet.webp` together.
+- Include `pets/<pet-slug>/pet.json`, `pets/<pet-slug>/distribution.json`, and `pets/<pet-slug>/spritesheet.webp` together.
 - Prefer a validated v2 atlas; keep `spriteVersionNumber` consistent with atlas dimensions.
 - Include a v1 compatibility ZIP under `web-v1/` when possible.
 - Preserve the real companion's identifiable coat, face, eyes, proportions, and tail, but never expose private data.
 - Declare the asset license in the PR. CC BY-NC 4.0 is the default only when you own the necessary rights.
 - Add motion previews under `previews/motions/<pet-slug>/` when available.
+
+Use this distribution metadata:
+
+```json
+{
+  "contributor": {
+    "github": "your-github-id",
+    "displayName": "Your display name"
+  },
+  "license": "CC-BY-NC-4.0",
+  "attribution": "Pet name art by Your display name",
+  "surfaces": {
+    "codex": true,
+    "chatgpt": false
+  }
+}
+```
+
+Pet contribution and ChatGPT plugin distribution are separate choices. The default is `surfaces.chatgpt: false`, which keeps the pet Codex-only. Set it to `true` only when you want the asset distributed through the maintainer-published ChatGPT plugin as well. You may change this choice later through a reviewed pull request. Opting in does not make you responsible for hosting, review submission, or publication; the maintainer publishes the official plugin and preserves your attribution and declared license.
 
 Open this repository in Codex and invoke `$create-companion-pet`, or start with `prompts/create-your-pet.md`.
 

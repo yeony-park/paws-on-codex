@@ -14,17 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: labeler
-        uses: actions/labeler@v6
+        uses: actions/labeler@b8dd2d9be0f68b860e7dae5dae7d772984eacd6d # v6
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           sync-labels: true
       # Only trusted code from the target branch is checked out. The pull
       # request head is never checked out or executed in this workflow.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: ${{ github.event.pull_request.base.sha }}
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
       - name: Validate external contribution paths
