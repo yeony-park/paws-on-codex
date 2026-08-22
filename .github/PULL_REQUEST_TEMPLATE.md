@@ -28,7 +28,6 @@ Examples:
 - Species / breed:
 - GitHub creator or guardian:
 - Asset license:
-- ChatGPT plugin distribution: Opt in / Codex only / N/A
 - Optional photo path:
 - Web v1 compatibility ZIP included: Yes / No / N/A
 
@@ -57,6 +56,5 @@ Details:
 - [ ] No private information, precise location, readable tag, address, or identifiable bystander appears in submitted media.
 - [ ] I submitted at most one optional photo using the same filename stem as the introduction, or N/A.
 - [ ] An installable pet includes matching `pet.json`, `distribution.json`, and `spritesheet.webp` files, or N/A.
-- [ ] I recorded my ChatGPT plugin distribution choice in `distribution.json`, or N/A.
 - [ ] I checked transparent backgrounds, motion previews, and relative links where applicable.
 - [ ] I declared the asset license and any required attribution.

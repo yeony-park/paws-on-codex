@@ -4,7 +4,6 @@
 
 [![Codex Pet v2](https://img.shields.io/badge/Codex%20Pet-v2-6f5bd3)](https://github.com/yeony-park/paws-on-codex)
 [![Pets](https://img.shields.io/badge/pets-2-f2a6b3)](#meet-the-pets)
-[![ChatGPT adapter](https://img.shields.io/badge/ChatGPT-developer%20preview-8b8cd2)](#chatgpt-adapter--developer-preview)
 [![Code License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Assets: CC BY-NC 4.0](https://img.shields.io/badge/assets-CC%20BY--NC%204.0-lightgrey.svg)](ASSETS-LICENSE.md)
 
@@ -80,20 +79,27 @@ Use these compatibility ZIP files when a web uploader accepts only the 8×9 v1 a
 - [Chapssari v1 web upload ZIP](web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 web upload ZIP](web-v1/mandu-v1-web-upload.zip)
 
-## OpenAI plugin · release candidate
+## Install with ChatGPT Work
 
-The same v2 pet assets can now be served through a read-only MCP server and displayed inside an MCP Apps iframe. The viewer uses the browser Canvas API to play the existing sprite atlas; it does not add Three.js or rerender the pets.
+If ChatGPT Work can access GitHub and your local Codex environment, give it the GitHub folder for the v2 pet you want:
 
-The repository now includes a self-contained Codex plugin package plus a deployable Streamable HTTP MCP server for ChatGPT. It is not publicly listed yet: the maintainer still needs to deploy the HTTPS endpoint, verify the domain, complete identity verification, and submit it through the OpenAI Platform. Community pets can join the public catalog only when their contributor explicitly sets `surfaces.chatgpt` to `true` in `pets/<pet-slug>/distribution.json`; attribution and the declared asset license remain attached.
+- [Chapssari v2 pet folder](https://github.com/yeony-park/paws-on-codex/tree/main/pets/chapssari)
+- [Mandu v2 pet folder](https://github.com/yeony-park/paws-on-codex/tree/main/pets/mandu)
 
-See [`apps/chatgpt/README.md`](apps/chatgpt/README.md) for local testing and [`docs/plugin/SUBMISSION.md`](docs/plugin/SUBMISSION.md) for the production and review checklist.
+Paste this prompt with the folder link:
 
-Install the source marketplace directly from GitHub:
+```text
+Install this Codex Pet v2 package from GitHub:
+<PET_FOLDER_URL>
 
-```bash
-codex plugin marketplace add yeony-park/paws-on-codex --ref main
-codex plugin add paws-on-codex@paws-on-codex
+Use the existing pet.json and spritesheet.webp exactly as provided. Install them
+under the active CODEX_HOME pets directory (default: ~/.codex/pets/<pet-id>/),
+preserve the filenames, validate the package, and tell me whether Codex needs to
+be refreshed or restarted. Do not convert the package to v1 and do not regenerate
+or alter the artwork.
 ```
+
+This is a convenience workflow rather than a separately published plugin. ChatGPT Work capabilities and local write permissions can vary by environment; if it cannot write to your Codex pet directory, use the one-command installer above.
 
 ## Introduce your companion
 
@@ -125,14 +131,6 @@ The skill gathers an identity brief, invokes the installed `hatch-pet` workflow,
 ```text
 .
 ├── .agents/skills/create-companion-pet/
-├── apps/chatgpt/
-│   ├── server/              # read-only MCP catalog and tools
-│   └── web/                 # Canvas-based MCP Apps component
-├── plugins/paws-on-codex/
-│   ├── .codex-plugin/plugin.json
-│   ├── .mcp.json
-│   └── skills/choose-companion/
-├── packages/pet-core/       # shared state, cell, and timing contract
 ├── pets/
 │   ├── chapssari/{pet.json,distribution.json,spritesheet.webp}
 │   └── mandu/{pet.json,distribution.json,spritesheet.webp}
@@ -149,21 +147,6 @@ The skill gathers an identity brief, invokes the installed `hatch-pet` workflow,
 ├── LICENSE
 └── ASSETS-LICENSE.md
 ```
-
-## Roadmap
-
-- [x] Publish Chapssari and Mandu as installable Codex v2 pets
-- [x] Add one-command installers, v1 web packages, contribution validation, and a community gallery
-- [x] Build a Canvas-based MCP Apps prototype that reuses the existing pet atlases
-- [x] Package a self-contained local plugin and add a packaged-runtime smoke test
-- [x] Prepare privacy, support, deployment, and reviewer test materials
-- [ ] Deploy the MCP server to a stable HTTPS origin and complete hosted testing
-- [ ] Submit the maintainer-published plugin for review and, if approved, make it publicly discoverable
-- [ ] Expand the plugin catalog with community pets whose contributors explicitly opt in
-
-Pet contribution and plugin distribution are separate choices. New pets default to Codex-only with `surfaces.chatgpt: false`. A contributor may opt in by setting it to `true`, or change that choice later through a reviewed pull request. Contributors are never required to host, submit, or publish the plugin themselves; the maintainer handles the official plugin release while preserving each contributor's attribution and declared asset license.
-
-Orca compatibility is documented separately in [`docs/plugin/ORCA.md`](docs/plugin/ORCA.md). Running Codex through Orca can reuse a system-default Codex installation, but embedded pet UI support is not claimed until Orca documents or passes an MCP Apps rendering test.
 
 ## Acknowledgements
 
