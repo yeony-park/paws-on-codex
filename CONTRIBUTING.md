@@ -83,7 +83,7 @@ Use this distribution metadata:
 }
 ```
 
-Pet contribution and ChatGPT plugin distribution are separate choices. The default is `surfaces.chatgpt: false`, which keeps the pet Codex-only. Set it to `true` only when you want the asset distributed through the maintainer-published ChatGPT plugin as well. You may change this choice later through a reviewed pull request. Opting in does not make you responsible for hosting, review submission, or publication; the maintainer publishes the official plugin and preserves your attribution and declared license.
+Keep `surfaces.chatgpt` set to `false` for new contributions. It is reserved for the repository's experimental adapter code and is not a public distribution program. The ChatGPT Work GitHub-import workflow documented in `README.md` reads the v2 package directly and does not require contributor opt-in.
 
 Open this repository in Codex and invoke `$create-companion-pet`, or start with `prompts/create-your-pet.md`.
 
