@@ -11,6 +11,7 @@ Des compagnons Codex 3D au style animal virtuel rétro, tout en conservant les t
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 L'installation se fait par défaut dans `~/.codex/pets/<pet-name>/`. Rechargez ou redémarrez Codex ensuite.
@@ -19,6 +20,7 @@ L'installation se fait par défaut dans `~/.codex/pets/<pet-name>/`. Rechargez o
 
 - [Chapssari v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## Communauté
 

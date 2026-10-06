@@ -10,16 +10,17 @@ $BaseUrl = if ($env:PAWS_ON_CODEX_BASE_URL) {
 } else {
     "https://raw.githubusercontent.com/$Repository/main"
 }
-$AvailablePets = @("chapssari", "mandu")
+$AvailablePets = @("chapssari", "mandu", "cho")
 
 if ($Pet -eq "--list") {
     Write-Output "chapssari`t찹쌀이"
     Write-Output "mandu`t만두"
+    Write-Output "cho`t쵸"
     exit 0
 }
 
 if ([string]::IsNullOrWhiteSpace($Pet) -or $Pet -notin $AvailablePets) {
-    Write-Error "Usage: install.ps1 <chapssari|mandu> or install.ps1 --list"
+    Write-Error "Usage: install.ps1 <chapssari|mandu|cho> or install.ps1 --list"
 }
 
 $CodexHome = if ($env:CODEX_HOME) {

@@ -11,6 +11,7 @@ Pets 3D para o Codex com estética de bichinho virtual retrô, mantendo as carac
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 O destino padrão é `~/.codex/pets/<pet-name>/`. Atualize ou reinicie o Codex após a instalação.
@@ -19,6 +20,7 @@ O destino padrão é `~/.codex/pets/<pet-name>/`. Atualize ou reinicie o Codex a
 
 - [Chapssari v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## Comunidade
 
