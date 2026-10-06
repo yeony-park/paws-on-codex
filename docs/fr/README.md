@@ -4,7 +4,7 @@
 
 Des compagnons Codex 3D au style animal virtuel rétro, tout en conservant les traits reconnaissables de l'animal réel. Le projet est né de l'envie d'avoir des versions 3D de Chapssari et Mandu.
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari et Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari, Mandu et Cho" width="800"></p>
 
 ## Installation rapide
 

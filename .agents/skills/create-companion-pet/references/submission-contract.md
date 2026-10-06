@@ -31,6 +31,8 @@ An optional public photo must use the same filename stem under `community-pets/p
 
 For publication, add the pet to both installers' supported IDs and lists, the README pet/motion tables and download links, and localized installation/download lists. Include an approved real-photo entry when requested. Preserve the user's description across the v2 manifest, v1 ZIP manifest, and introduction.
 
+Keep the root `README.md` prose, captions, and pet table headings in English; native language names may remain in the language-navigation links. Translate a supplied description faithfully for the root README and retain the original wording in the appropriate localized documentation and pet metadata.
+
 ## License and attribution
 
 Use MIT for contributed code and documentation. Use CC BY-NC 4.0 for original pet art and public companion photos only when the contributor owns the necessary rights and accepts those terms. Record any different asset license explicitly in the pull request and beside the asset.

@@ -4,7 +4,7 @@
 
 असली पालतू साथी की पहचान—रंग, चेहरे का आकार, आँखें, शरीर और पूँछ—बचाए रखने वाले नरम 3D रेट्रो वर्चुअल-पेट शैली के Codex pets। यह प्रोजेक्ट अपने साथियों Chapssari और Mandu के 3D pets बनाने की इच्छा से शुरू हुआ।
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari और Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari, Mandu और Cho" width="800"></p>
 
 ## तुरंत इंस्टॉल करें
 

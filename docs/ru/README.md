@@ -4,7 +4,7 @@
 
 Мягкие 3D-питомцы Codex в стиле ретро-игры, сохраняющие узнаваемые особенности настоящего животного. Проект начался с желания иметь 3D-версии домашних любимцев Chapssari и Mandu.
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari и Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari, Mandu и Cho" width="800"></p>
 
 ## Быстрая установка
 

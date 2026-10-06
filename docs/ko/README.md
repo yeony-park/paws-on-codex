@@ -4,7 +4,7 @@
 
 실제 반려동물을 한눈에 알아볼 수 있는 부드러운 3D 다마고치풍 Codex 펫 프로젝트입니다. 반려동물 3D 펫이 가지고 싶어서 찹쌀이와 만두를 만들며 시작했습니다.
 
-<p align="center"><img src="../../previews/comparison.png" alt="찹쌀이와 만두" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="찹쌀이, 만두, 쵸" width="800"></p>
 
 ## 쵸를 기억하며
 

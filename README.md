@@ -10,7 +10,7 @@
 **English** · [한국어](docs/ko/README.md) · [日本語](docs/ja/README.md) · [简体中文](docs/zh-CN/README.md) · [Español](docs/es/README.md) · [Deutsch](docs/de/README.md) · [हिन्दी](docs/hi/README.md) · [Français](docs/fr/README.md) · [Português (Brasil)](docs/pt-BR/README.md) · [Русский](docs/ru/README.md)
 
 <p align="center">
-  <img src="previews/comparison.png" alt="3D Tamagotchi-style Codex pets Chapssari and Mandu" width="900">
+  <img src="previews/comparison.png" alt="3D Tamagotchi-style Codex pets Chapssari, Mandu, and Cho" width="900">
 </p>
 
 ## Why this exists
@@ -21,10 +21,10 @@ The repository now also gives other guardians a small, repeatable path for intro
 
 ## The real cats behind the pixels
 
-| Chapssari · 찹쌀이 | Mandu · 만두 | Cho · 쵸 |
+| Chapssari | Mandu | Cho |
 | --- | --- | --- |
 | <img src="community-pets/photos/yeony-park--chapssari.webp" alt="The real Chapssari" width="280"> | <img src="community-pets/photos/yeony-park--mandu.webp" alt="The real Mandu" width="280"> | <img src="community-pets/photos/yeony-park--cho.webp" alt="The real Cho, a three-month-old Norwegian Forest kitten" width="280"> |
-| Long-haired, silver-gray and white, with a generous unstriped plume tail. | A five-month-old taupe-gray and cream British Shorthair kitten, curious about everything. | Our beloved Cho, who went to the cat stars far too soon. A Norwegian Forest kitten who was only three months old.<br>어릴 때 일찍 고양이 별로 가버린 사랑하는 쵸. · 노르웨이숲 · 3개월 |
+| Long-haired, silver-gray and white, with a generous unstriped plume tail. | A five-month-old taupe-gray and cream British Shorthair kitten, curious about everything. | Our beloved Cho, who went to the cat stars far too soon. A Norwegian Forest kitten who was only three months old. |
 
 ## Quick install
 
@@ -64,7 +64,7 @@ The default destination is `~/.codex/pets/<pet-name>/`, or the equivalent path u
 
 ## Meet the pets
 
-| Chapssari · 찹쌀이 | Mandu · 만두 | Cho · 쵸 |
+| Chapssari | Mandu | Cho |
 | --- | --- | --- |
 | <img src="previews/chapssari.gif" alt="Chapssari idle animation" width="180"> | <img src="previews/mandu.gif" alt="Mandu idle animation" width="180"> | <img src="previews/cho.gif" alt="Cho idle animation" width="180"> |
 | A Norwegian Forest cat with abundant silver-gray fur, a broad white tuxedo, green eyes, and a huge unstriped plume tail. | A curious, energetic British Shorthair kitten with subtle taupe-gray and creamy-white fur, blue-green eyes, and a compact round build. | In memory of our beloved Cho, a gray-and-white Norwegian Forest kitten who went to the cat stars at just three months old. |

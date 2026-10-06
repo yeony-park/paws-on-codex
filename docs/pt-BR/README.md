@@ -4,7 +4,7 @@
 
 Pets 3D para o Codex com estética de bichinho virtual retrô, mantendo as características reconhecíveis do animal real. O projeto nasceu da vontade de ter versões 3D dos meus companheiros Chapssari e Mandu.
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari e Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari, Mandu e Cho" width="800"></p>
 
 ## Instalação rápida
 
