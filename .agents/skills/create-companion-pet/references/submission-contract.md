@@ -8,7 +8,7 @@ pets/<pet-slug>/distribution.json
 pets/<pet-slug>/spritesheet.webp
 ```
 
-Use an ASCII lowercase hyphenated slug. Set `spriteVersionNumber` to `2`. The atlas must be RGBA WebP, `1536×2288`, with `192×208` cells in an `8×11` grid. Preserve the Codex row contract and fully transparent unused cells.
+Use an ASCII lowercase hyphenated slug. Set `spriteVersionNumber` to `2`. The atlas must be RGBA WebP, `1536×2288`, with `192×208` cells in an `8×11` grid. Preserve the Codex row contract, including its neutral reference at row 0 column 6, and fully transparent unused cells. An imported Work sheet may leave the neutral reference empty; populate it from the approved first idle frame only in the Codex export, leaving all animation and look frames unchanged.
 
 Record contributor identity, attribution, asset license, and distribution consent in `distribution.json`. Set `surfaces.chatgpt` to `true` only with explicit contributor consent; otherwise keep it `false` so the pet remains Codex-only.
 
@@ -28,6 +28,8 @@ Save the archive as `web-v1/<pet-slug>-v1-web-upload.zip`.
 Render `previews/<pet-slug>.gif` plus motion GIFs under `previews/motions/<pet-slug>/`. Add `community-pets/<github-id>--<pet-slug>.md` containing one non-empty line of at most 180 characters.
 
 An optional public photo must use the same filename stem under `community-pets/photos-inbox/`. Accept only JPG, PNG, or WebP; one photo per companion.
+
+For publication, add the pet to both installers' supported IDs and lists, the README pet/motion tables and download links, and localized installation/download lists. Include an approved real-photo entry when requested. Preserve the user's description across the v2 manifest, v1 ZIP manifest, and introduction.
 
 ## License and attribution
 
