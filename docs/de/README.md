@@ -11,6 +11,7 @@ Weiche 3D-Codex-Haustiere im Retro-Virtual-Pet-Stil, die Fell, Gesicht, Augen, K
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 Standardziel ist `~/.codex/pets/<pet-name>/`. Danach Codex neu laden oder starten.
@@ -19,6 +20,7 @@ Standardziel ist `~/.codex/pets/<pet-name>/`. Danach Codex neu laden oder starte
 
 - [Chapssari v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## Community
 

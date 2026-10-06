@@ -11,6 +11,7 @@
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 डिफ़ॉल्ट स्थान `~/.codex/pets/<pet-name>/` है। इंस्टॉल के बाद Codex को रीफ़्रेश या रीस्टार्ट करें।
@@ -19,6 +20,7 @@ curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/insta
 
 - [Chapssari v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## समुदाय में योगदान
 

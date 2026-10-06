@@ -13,12 +13,14 @@ macOS / Linux:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 Windows PowerShell:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((irm 'https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.ps1'))) chapssari"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((irm 'https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.ps1'))) cho"
 ```
 
 기본 설치 위치는 `~/.codex/pets/<pet-name>/`입니다. 설치 후 Codex를 새로고침하거나 다시 실행하세요.
@@ -27,6 +29,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create
 
 - [찹쌀이 v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [만두 v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [쵸 v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## 반려동물 소개와 기여
 

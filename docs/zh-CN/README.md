@@ -11,6 +11,7 @@
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 默认安装到 `~/.codex/pets/<pet-name>/`。安装后请刷新或重启Codex。
@@ -19,6 +20,7 @@ curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/insta
 
 - [Chapssari v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## 社区贡献
 

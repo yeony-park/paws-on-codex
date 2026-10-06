@@ -11,6 +11,7 @@ Mascotas de Codex en 3D, con estética de mascota virtual retro, que conservan l
 ```bash
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- chapssari
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 La ruta predeterminada es `~/.codex/pets/<pet-name>/`. Reinicia o actualiza Codex después de instalar.
@@ -19,6 +20,7 @@ La ruta predeterminada es `~/.codex/pets/<pet-name>/`. Reinicia o actualiza Code
 
 - [Chapssari v1 ZIP](../../web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 ZIP](../../web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 ZIP](../../web-v1/cho-v1-web-upload.zip)
 
 ## Comunidad
 

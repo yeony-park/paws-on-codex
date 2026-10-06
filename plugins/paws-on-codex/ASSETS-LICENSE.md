@@ -1,6 +1,6 @@
 # Pet asset license
 
-Unless a file or contribution explicitly says otherwise, the original Chapssari and Mandu spritesheets, character renders, animated previews, and community pet assets in this repository are licensed under [Creative Commons Attribution–NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) (`CC BY-NC 4.0`).
+Unless a file or contribution explicitly says otherwise, the original Chapssari, Mandu, and Cho spritesheets, character renders, animated previews, and community pet assets in this repository are licensed under [Creative Commons Attribution–NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) (`CC BY-NC 4.0`).
 
 You may share and adapt these assets for noncommercial purposes when you:
 

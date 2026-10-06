@@ -3,7 +3,7 @@
 > Real companion animals, reimagined as soft 3D Tamagotchi-style Codex pets.
 
 [![Codex Pet v2](https://img.shields.io/badge/Codex%20Pet-v2-6f5bd3)](https://github.com/yeony-park/paws-on-codex)
-[![Pets](https://img.shields.io/badge/pets-2-f2a6b3)](#meet-the-pets)
+[![Pets](https://img.shields.io/badge/pets-3-f2a6b3)](#meet-the-pets)
 [![Code License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Assets: CC BY-NC 4.0](https://img.shields.io/badge/assets-CC%20BY--NC%204.0-lightgrey.svg)](ASSETS-LICENSE.md)
 
@@ -36,6 +36,9 @@ curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/insta
 
 # Mandu
 curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- mandu
+
+# Cho
+curl -fsSL https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.sh | bash -s -- cho
 ```
 
 List available pets:
@@ -52,16 +55,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create
 
 # Mandu
 powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((irm 'https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.ps1'))) mandu"
+
+# Cho
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& ([scriptblock]::Create((irm 'https://raw.githubusercontent.com/yeony-park/paws-on-codex/main/install.ps1'))) cho"
 ```
 
 The default destination is `~/.codex/pets/<pet-name>/`, or the equivalent path under `CODEX_HOME`. Refresh or restart Codex after installation.
 
 ## Meet the pets
 
-| Chapssari · 찹쌀이 | Mandu · 만두 |
-| --- | --- |
-| <img src="previews/chapssari.gif" alt="Chapssari idle animation" width="180"> | <img src="previews/mandu.gif" alt="Mandu idle animation" width="180"> |
-| A Norwegian Forest cat with abundant silver-gray fur, a broad white tuxedo, green eyes, and a huge unstriped plume tail. | A curious, energetic British Shorthair kitten with subtle taupe-gray and creamy-white fur, blue-green eyes, and a compact round build. |
+| Chapssari · 찹쌀이 | Mandu · 만두 | Cho · 쵸 |
+| --- | --- | --- |
+| <img src="previews/chapssari.gif" alt="Chapssari idle animation" width="180"> | <img src="previews/mandu.gif" alt="Mandu idle animation" width="180"> | <img src="previews/cho.gif" alt="Cho idle animation" width="180"> |
+| A Norwegian Forest cat with abundant silver-gray fur, a broad white tuxedo, green eyes, and a huge unstriped plume tail. | A curious, energetic British Shorthair kitten with subtle taupe-gray and creamy-white fur, blue-green eyes, and a compact round build. | A gray-and-white Norwegian Forest kitten with a fluffy coat, round eyes, a pink nose, and a gentle expression. |
 
 ## Motion gallery
 
@@ -69,6 +75,7 @@ The default destination is `~/.codex/pets/<pet-name>/`, or the equivalent path u
 | --- | --- | --- | --- | --- | --- |
 | **Chapssari** | ![Chapssari idle](previews/motions/chapssari/idle.gif) | ![Chapssari waving](previews/motions/chapssari/waving.gif) | ![Chapssari running](previews/motions/chapssari/running.gif) | ![Chapssari waiting](previews/motions/chapssari/waiting.gif) | ![Chapssari review](previews/motions/chapssari/review.gif) |
 | **Mandu** | ![Mandu idle](previews/motions/mandu/idle.gif) | ![Mandu waving](previews/motions/mandu/waving.gif) | ![Mandu running](previews/motions/mandu/running.gif) | ![Mandu waiting](previews/motions/mandu/waiting.gif) | ![Mandu review](previews/motions/mandu/review.gif) |
+| **Cho** | ![Cho idle](previews/motions/cho/idle.gif) | ![Cho waving](previews/motions/cho/waving.gif) | ![Cho running](previews/motions/cho/running.gif) | ![Cho waiting](previews/motions/cho/waiting.gif) | ![Cho review](previews/motions/cho/review.gif) |
 
 Each v2 package also contains left/right movement, jumping, failure reactions, and 16 look directions.
 
@@ -78,6 +85,7 @@ Use these compatibility ZIP files when a web uploader accepts only the 8×9 v1 a
 
 - [Chapssari v1 web upload ZIP](web-v1/chapssari-v1-web-upload.zip)
 - [Mandu v1 web upload ZIP](web-v1/mandu-v1-web-upload.zip)
+- [Cho v1 web upload ZIP](web-v1/cho-v1-web-upload.zip)
 
 ## Install with ChatGPT Work
 
@@ -85,6 +93,7 @@ If ChatGPT Work can access GitHub and your local Codex environment, give it the 
 
 - [Chapssari v2 pet folder](https://github.com/yeony-park/paws-on-codex/tree/main/pets/chapssari)
 - [Mandu v2 pet folder](https://github.com/yeony-park/paws-on-codex/tree/main/pets/mandu)
+- [Cho v2 pet folder](https://github.com/yeony-park/paws-on-codex/tree/main/pets/cho)
 
 Paste this prompt with the folder link:
 
@@ -133,7 +142,8 @@ The skill gathers an identity brief, invokes the installed `hatch-pet` workflow,
 ├── .agents/skills/create-companion-pet/
 ├── pets/
 │   ├── chapssari/{pet.json,distribution.json,spritesheet.webp}
-│   └── mandu/{pet.json,distribution.json,spritesheet.webp}
+│   ├── mandu/{pet.json,distribution.json,spritesheet.webp}
+│   └── cho/{pet.json,distribution.json,spritesheet.webp}
 ├── previews/
 ├── web-v1/
 ├── community-pets/
@@ -174,7 +184,7 @@ Thanks to everyone who introduces a companion, improves a pet, translates docume
 
 - Code, scripts, and documentation: [MIT](LICENSE)
 - Bundled third-party software: each dependency's terms are reproduced in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)
-- Chapssari and Mandu pet assets and preview media: [CC BY-NC 4.0](ASSETS-LICENSE.md)
+- Chapssari, Mandu, and Cho pet assets and preview media: [CC BY-NC 4.0](ASSETS-LICENSE.md)
 - Community photos and pet assets: the license declared by their contributor; CC BY-NC 4.0 is the default only when the contributor owns the necessary rights and accepts that license
 
 The likenesses and names of real companion animals remain associated with their guardians. Reference photos are not relicensed unless they are explicitly included and marked.

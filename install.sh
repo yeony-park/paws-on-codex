@@ -7,18 +7,19 @@ readonly BASE_URL="${PAWS_ON_CODEX_BASE_URL:-https://raw.githubusercontent.com/$
 readonly PET="${1:-}"
 
 usage() {
-  printf 'Usage: %s <chapssari|mandu>\n' "${0##*/}"
+  printf 'Usage: %s <chapssari|mandu|cho>\n' "${0##*/}"
   printf '       %s --list\n' "${0##*/}"
 }
 
 if [[ "${PET}" == "--list" ]]; then
   printf 'chapssari\t찹쌀이\n'
   printf 'mandu\t만두\n'
+  printf 'cho\t쵸\n'
   exit 0
 fi
 
 case "${PET}" in
-  chapssari | mandu) ;;
+  chapssari | mandu | cho) ;;
   "")
     usage >&2
     exit 2
