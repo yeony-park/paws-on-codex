@@ -4,7 +4,7 @@
 
 把真实宠物的毛色、脸型、眼睛、体型和尾巴保留下来，制作成柔软明亮的3D电子宠物风Codex宠物。这个项目始于“我想拥有自己宠物的3D角色”。
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari 和 Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari、Mandu 和 Cho" width="800"></p>
 
 ## 快速安装
 

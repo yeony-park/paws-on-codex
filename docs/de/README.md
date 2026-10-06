@@ -4,7 +4,7 @@
 
 Weiche 3D-Codex-Haustiere im Retro-Virtual-Pet-Stil, die Fell, Gesicht, Augen, Körperbau und Schwanz des echten Tieres erkennbar bewahren. Das Projekt entstand aus dem Wunsch nach 3D-Versionen der eigenen Haustiere Chapssari und Mandu.
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari und Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari, Mandu und Cho" width="800"></p>
 
 ## Schnellinstallation
 

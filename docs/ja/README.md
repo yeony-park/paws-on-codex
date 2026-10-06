@@ -4,7 +4,7 @@
 
 実在するペットの特徴を保った、やわらかな3Dたまごっち風Codexペットです。自分のペットの3Dキャラクターが欲しくて、チャプサリとマンドゥから始めました。
 
-<p align="center"><img src="../../previews/comparison.png" alt="チャプサリとマンドゥ" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="チャプサリ、マンドゥ、チョ" width="800"></p>
 
 ## クイックインストール
 

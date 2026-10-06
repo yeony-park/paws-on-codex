@@ -4,7 +4,7 @@
 
 Mascotas de Codex en 3D, con estética de mascota virtual retro, que conservan los rasgos reconocibles del animal real. El proyecto nació porque quería tener versiones 3D de mis propios compañeros, Chapssari y Mandu.
 
-<p align="center"><img src="../../previews/comparison.png" alt="Chapssari y Mandu" width="800"></p>
+<p align="center"><img src="../../previews/comparison.png" alt="Chapssari, Mandu y Cho" width="800"></p>
 
 ## Instalación rápida
 
