@@ -9,6 +9,8 @@
 
 **English** · [한국어](docs/ko/README.md) · [日本語](docs/ja/README.md) · [简体中文](docs/zh-CN/README.md) · [Español](docs/es/README.md) · [Deutsch](docs/de/README.md) · [हिन्दी](docs/hi/README.md) · [Français](docs/fr/README.md) · [Português (Brasil)](docs/pt-BR/README.md) · [Русский](docs/ru/README.md)
 
+The localized READMEs cover the same pets, installation options, and contribution workflow as this English guide. Please report translation errors or missing information through an issue or pull request.
+
 <p align="center">
   <img src="previews/comparison.png" alt="3D Tamagotchi-style Codex pets Chapssari, Mandu, and Cho" width="900">
 </p>
