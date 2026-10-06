@@ -6,6 +6,14 @@
 
 <p align="center"><img src="../../previews/comparison.png" alt="찹쌀이와 만두" width="800"></p>
 
+## 쵸를 기억하며
+
+<img src="../../community-pets/photos/yeony-park--cho.webp" alt="3개월 된 노르웨이숲 쵸" width="280">
+
+어릴 때 일찍 고양이 별로 가버린 사랑하는 쵸.
+
+노르웨이숲 · 3개월. 쵸의 모습을 담은 펫은 아래 `cho` 설치 명령으로 만날 수 있습니다.
+
 ## 빠른 설치
 
 macOS / Linux:

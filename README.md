@@ -21,10 +21,10 @@ The repository now also gives other guardians a small, repeatable path for intro
 
 ## The real cats behind the pixels
 
-| Chapssari · 찹쌀이 | Mandu · 만두 |
-| --- | --- |
-| <img src="community-pets/photos/yeony-park--chapssari.webp" alt="The real Chapssari" width="360"> | <img src="community-pets/photos/yeony-park--mandu.webp" alt="The real Mandu" width="360"> |
-| Long-haired, silver-gray and white, with a generous unstriped plume tail. | A five-month-old taupe-gray and cream British Shorthair kitten, curious about everything. |
+| Chapssari · 찹쌀이 | Mandu · 만두 | Cho · 쵸 |
+| --- | --- | --- |
+| <img src="community-pets/photos/yeony-park--chapssari.webp" alt="The real Chapssari" width="280"> | <img src="community-pets/photos/yeony-park--mandu.webp" alt="The real Mandu" width="280"> | <img src="community-pets/photos/yeony-park--cho.webp" alt="The real Cho, a three-month-old Norwegian Forest kitten" width="280"> |
+| Long-haired, silver-gray and white, with a generous unstriped plume tail. | A five-month-old taupe-gray and cream British Shorthair kitten, curious about everything. | Our beloved Cho, who went to the cat stars far too soon. A Norwegian Forest kitten who was only three months old.<br>어릴 때 일찍 고양이 별로 가버린 사랑하는 쵸. · 노르웨이숲 · 3개월 |
 
 ## Quick install
 
@@ -67,7 +67,7 @@ The default destination is `~/.codex/pets/<pet-name>/`, or the equivalent path u
 | Chapssari · 찹쌀이 | Mandu · 만두 | Cho · 쵸 |
 | --- | --- | --- |
 | <img src="previews/chapssari.gif" alt="Chapssari idle animation" width="180"> | <img src="previews/mandu.gif" alt="Mandu idle animation" width="180"> | <img src="previews/cho.gif" alt="Cho idle animation" width="180"> |
-| A Norwegian Forest cat with abundant silver-gray fur, a broad white tuxedo, green eyes, and a huge unstriped plume tail. | A curious, energetic British Shorthair kitten with subtle taupe-gray and creamy-white fur, blue-green eyes, and a compact round build. | A gray-and-white Norwegian Forest kitten with a fluffy coat, round eyes, a pink nose, and a gentle expression. |
+| A Norwegian Forest cat with abundant silver-gray fur, a broad white tuxedo, green eyes, and a huge unstriped plume tail. | A curious, energetic British Shorthair kitten with subtle taupe-gray and creamy-white fur, blue-green eyes, and a compact round build. | In memory of our beloved Cho, a gray-and-white Norwegian Forest kitten who went to the cat stars at just three months old. |
 
 ## Motion gallery
 
@@ -133,7 +133,7 @@ This repository includes the project skill [`$create-companion-pet`](.agents/ski
 Use $create-companion-pet to turn these photos of my companion into a Codex pet.
 ```
 
-The skill gathers an identity brief, invokes the installed `hatch-pet` workflow, produces a validated v2 package and v1 web package, and stages contribution metadata. A shorter standalone brief is also available in [`prompts/create-your-pet.md`](prompts/create-your-pet.md).
+The skill gathers an identity brief, selects the installed workflow for the requested destination (`hatch-pet` for Codex or `work-pets:create-pet` for ChatGPT Work), and stages validated v2 assets, a v1 web package, and contribution metadata for repository publication. Existing approved pets can be imported without regenerating their artwork. The shared [creation and review guidance](.agents/skills/create-companion-pet/references/creation-quality.md) covers identity, motion, and look-direction checks. A shorter standalone brief is also available in [`prompts/create-your-pet.md`](prompts/create-your-pet.md).
 
 ## Repository layout
 

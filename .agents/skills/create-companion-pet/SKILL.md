@@ -9,12 +9,12 @@ Create a production-ready Codex pet while preserving the real companion's distin
 
 ## Workflow
 
-1. Confirm the pet's name, species or breed, age, temperament, and 3–8 distinguishing visual traits. Use attached photos as the primary evidence; ask only for facts that cannot be inferred safely.
+1. Confirm the requested destination (Codex, ChatGPT Work, or GitHub packaging), the pet's name, species or breed, age, temperament, and distinguishing visual traits. Use supplied facts and attached photos as the primary evidence; ask only for missing facts that matter. Preserve user-supplied descriptions and memorial wording verbatim; do not invent personality or age.
 2. Confirm that the contributor owns the photos or has permission to publish derived assets. Remove collar tags, addresses, screens, faces, and location clues from public material.
 3. Write an identity lock covering coat color and pattern, face shape, ears, eyes, nose, build, paws, and tail. Treat it as authoritative across every motion.
-4. Invoke the installed `hatch-pet` skill for visual generation, v2 assembly, deterministic validation, motion previews, look-direction QA, and packaging. Use a soft 3D retro virtual-pet style unless the user requests another style. Never replace the validated hatch workflow with hand-built sprite cells.
+4. Read [references/creation-quality.md](references/creation-quality.md), then select the installed workflow for the requested destination: `hatch-pet` for Codex creation, or `work-pets:create-pet` and its shared sprite contract for ChatGPT Work creation. For GitHub registration of an existing approved pet, reuse its downloaded atlas and skip visual generation. Do not invoke a Work creation/upload lifecycle for a Codex-only request. Use a soft 3D retro virtual-pet style unless the user requests another style. Never replace the selected workflow's bundled compositor or validator with hand-built sprites or a shape-only check. If a required skill or script is unavailable, report the missing prerequisite rather than claiming equivalent execution.
 5. Export the v1 web package and stage repository files according to [references/submission-contract.md](references/submission-contract.md).
-6. Add one single-line community introduction. Include at most one public photo in `community-pets/photos-inbox/`; let repository automation convert it to WebP.
+6. Add one single-line community introduction. Include at most one approved public photo in `community-pets/photos-inbox/`; crop screenshot bars/UI when requested and use the repository converter to produce a metadata-free WebP. If the contributor requested a README photo entry, add the real photo, introduction, and download links there too.
 7. Run all available atlas, archive, install-script, relative-link, photo-submission, and skill validations. Inspect contact sheets and GIFs at normal pet size before declaring success.
 
 ## Identity rules
